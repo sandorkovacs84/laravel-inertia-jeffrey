@@ -26975,9 +26975,11 @@ var appName = ((_window$document$getE = window.document.getElementsByTagName('ti
     return "".concat(_title, " - ").concat(appName);
   },
   resolve: function resolve(name) {
+    var _page$layout;
+
     var page = __webpack_require__("./resources/js/Pages sync recursive ^\\.\\/.*\\.vue$")("./".concat(name, ".vue"))["default"];
 
-    page.layout = _Shared_Layout__WEBPACK_IMPORTED_MODULE_3__["default"];
+    (_page$layout = page.layout) !== null && _page$layout !== void 0 ? _page$layout : page.layout = _Shared_Layout__WEBPACK_IMPORTED_MODULE_3__["default"];
     return page;
   },
   setup: function setup(_ref) {

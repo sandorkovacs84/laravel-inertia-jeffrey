@@ -12,7 +12,7 @@ createInertiaApp({
     resolve: (name) => {
         let page = require(`./Pages/${name}.vue`).default;
 
-        page.layout = Layout;
+        page.layout ??= Layout
 
         return page;
     },

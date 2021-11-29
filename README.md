@@ -23,3 +23,16 @@
 ### 2. Create Layout 
 
 * Shared/Layout.vue
+
+### 3. Shared data 
+
+* Edit HandleInertiaRequestsphp 
+
+### 4. Persistent Layout
+
+import Layout from '../Shared/Layout'
+
+export default {
+    layout: Layout,
+}
+

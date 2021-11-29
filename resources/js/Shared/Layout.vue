@@ -1,16 +1,24 @@
 <template>
     <section class="p-6 bg-gray-200">
-        <header class="flex bg-gray-200">
-            <h1 class="font-bold text-lg">
-                My App 
-            </h1>
+        <header class="flex justify-between">
+            <div class="flex items-center">
+                <h1 class="font-bold text-lg">
+                    My App 
+                </h1>
+
+                <p class="text-sm ml-4">
+                    Welcome Back, {{ username }}
+                </p>
+            </div>
 
             <Nav />
         </header>
     </section>
 
     <AppSection class="p-6">
-        <slot />
+        <div class="max-w-3xl mx-auto">
+            <slot />
+        </div>
     </AppSection>
 </template>
 
@@ -19,6 +27,14 @@
 import Nav from "./Nav"
 
 export default {
-    components: { Nav }
+    components: { Nav },
+
+    computed: {
+        username() {
+            return this.$page.props.auth.user.username
+        }
+        
+    }
+
 }
 </script>

@@ -11,7 +11,7 @@
 
 ## Tutorial - Workshop 
 
-### 1. Create Pages 
+### 1. Create Pages and implement Navigatoin 
 
 * Home.vue
 * Settings.vue
@@ -20,3 +20,6 @@
 * Shared/Nav.vue
 * Shared/NavLink.vue 
 
+### 2. Create Layout 
+
+* Shared/Layout.vue

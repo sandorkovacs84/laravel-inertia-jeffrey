@@ -26878,7 +26878,7 @@ var _hoisted_1 = {
   "class": "ml-6"
 };
 var _hoisted_2 = {
-  "class": "flex list-disc"
+  "class": "flex list-disc space-x-6 list-inside"
 };
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Home ");

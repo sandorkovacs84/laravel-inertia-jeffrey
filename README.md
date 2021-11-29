@@ -7,3 +7,16 @@
 * npm install && npm run dev 
 * mysql -uhomestead -psecret -e "create database lij";
 * php artisan migrate
+
+
+## Tutorial - Workshop 
+
+### 1. Create Pages 
+
+* Home.vue
+* Settings.vue
+* Users.vue 
+
+* Shared/Nav.vue
+* Shared/NavLink.vue 
+

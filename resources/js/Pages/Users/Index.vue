@@ -1,9 +1,14 @@
 <template>
     <Layout>
         <div class="flex justify-between mb-6">
-            <h1 class="text-4xl font-bold">
-                Users
-            </h1>
+            <div class="flex items-center">
+                <h1 class="text-4xl font-bold">
+                    Users
+                </h1>
+
+                <Link href="/users/create" class="text-blue-500 text-sm ml-2">New User</Link>
+
+            </div>
 
             <input v-model="search" placeholder="Search..." class="border px-2 rounded-lg" />
         </div>

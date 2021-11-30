@@ -37,3 +37,11 @@ export default {
     layout: Layout,
 }
 
+### 5. Pagination
+
+
+### 6. Filter and search
+
+
+### 7. Createe -> diff between ref and reactive ( used for objects )
+

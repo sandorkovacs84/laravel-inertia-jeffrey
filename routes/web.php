@@ -25,14 +25,18 @@ Route::get('/', function() {
 
 Route::get('/users', function() {
     return Inertia::render('Users', [
-        'users' => User::paginate(10)->through(fn($user) => [
+        'users' => User::query()
+            ->when(Request::input('search'), function($query, $search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(10)
+            ->through(fn($user) => [
                 'id' => $user->id,
                 'name' => $user->name
             ])
-        // 'users' => User::paginate(10)->map(fn($user) => [
-        //     'id' => $user->id,
-        //     'name' => $user->name
-        // ])
+            ->withQueryString(),
+            
+        'filters' => Request::only('search')
     ]);
 });
 
@@ -45,16 +49,6 @@ Route::get('/settings', function() {
 });
 
 
-
-
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -1,8 +1,12 @@
 <template>
     <Layout>
-        <h1 class="text-4xl font-bold">
-            Users
-        </h1>
+        <div class="flex justify-between mb-6">
+            <h1 class="text-4xl font-bold">
+                Users
+            </h1>
+
+            <input v-model="search" placeholder="Search..." class="border px-2 rounded-lg" />
+        </div>
 
         <!-- This example requires Tailwind CSS v2.0+ -->
         <div class="flex flex-col">
@@ -39,13 +43,7 @@
             </div>
         </div>
 
-        <!-- Paginator -->
-        <div class="mt-6">
-            <h1 class="text-lg">
-                Paginator
-            </h1>
-            <Pagination :links="users.links" class="mt-6" />
-        </div>
+        <Pagination :links="users.links" class="mt-6" />
 
 
     </Layout>
@@ -53,6 +51,20 @@
 
 <script setup>
 import Pagination from "../Shared/Pagination.vue"
-defineProps({ users: Object })
+import { ref, watch } from "vue"
+import { Inertia } from "@inertiajs/inertia"
+
+let props = defineProps({ 
+    users: Object,
+    filters: Object
+})
+
+let search = ref(props.filters.search)
+
+watch(search, value => {
+    Inertia.get('/users', { search: value }, {
+        preserveState: true
+    })
+})
 
 </script>

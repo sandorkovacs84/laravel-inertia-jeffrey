@@ -1,5 +1,6 @@
 ## Installation 
 
+* php 7.4 ( arrow functions )
 
 * composer create-project laravel/laravel laravel-inertia
 * composer require laravel/jetstream

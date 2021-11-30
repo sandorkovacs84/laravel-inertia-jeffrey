@@ -25,10 +25,14 @@ Route::get('/', function() {
 
 Route::get('/users', function() {
     return Inertia::render('Users', [
-        'users' => User::paginate(10)->map(fn($user) => [
-            'id' => $user->id,
-            'name' => $user->name
-        ])
+        'users' => User::paginate(10)->through(fn($user) => [
+                'id' => $user->id,
+                'name' => $user->name
+            ])
+        // 'users' => User::paginate(10)->map(fn($user) => [
+        //     'id' => $user->id,
+        //     'name' => $user->name
+        // ])
     ]);
 });
 

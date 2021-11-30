@@ -12,7 +12,7 @@
                         <table class="min-w-full divide-y divide-gray-200">
                         
                             <tbody class="bg-white divide-y divide-gray-200">
-                                <tr v-for="user in users" :key="user.id">
+                                <tr v-for="user in users.data" :key="user.id">
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex items-center">
 
@@ -26,7 +26,9 @@
                                     </td>
                                 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
+                                        <Link :href="'/users/${user.id}/edit'" class="text-indigo-600 hover:text-indigo-900">
+                                        Edit
+                                        </Link>
                                     </td>
                                 </tr>
 
@@ -37,10 +39,20 @@
             </div>
         </div>
 
+        <!-- Paginator -->
+        <div class="mt-6">
+            <h1 class="text-lg">
+                Paginator
+            </h1>
+            <Pagination :links="users.links" class="mt-6" />
+        </div>
+
+
     </Layout>
 </template>
 
 <script setup>
+import Pagination from "../Shared/Pagination.vue"
+defineProps({ users: Object })
 
-defineProps({ users: Array })
 </script>

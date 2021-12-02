@@ -6,7 +6,7 @@
                     Users
                 </h1>
 
-                <Link href="/users/create" class="text-blue-500 text-sm ml-2">New User</Link>
+                <Link v-if="can.createUser" href="/users/create" class="text-blue-500 text-sm ml-2">New User</Link>
 
             </div>
 
@@ -35,7 +35,7 @@
                                     </td>
                                 
                                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <Link :href="'/users/${user.id}/edit'" class="text-indigo-600 hover:text-indigo-900">
+                                        <Link v-if="user.can.edit" :href="'/users/${user.id}/edit'" class="text-indigo-600 hover:text-indigo-900">
                                         Edit
                                         </Link>
                                     </td>
@@ -63,7 +63,8 @@ import debounce from "lodash/debounce"
 
 let props = defineProps({ 
     users: Object,
-    filters: Object
+    filters: Object,
+    can: Object
 })
 
 let search = ref(props.filters.search)

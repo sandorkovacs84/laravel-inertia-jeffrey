@@ -30,10 +30,12 @@ Route::get('/users', function() {
                 $query->where('name', 'like', "%{$search}%");
             })
             ->paginate(10)
-            ->through(fn($user) => [
+            ->through(function($user) {
+                return [
                 'id' => $user->id,
                 'name' => $user->name
-            ])
+                ];
+            })
             ->withQueryString(),
 
         'filters' => Request::only('search')
